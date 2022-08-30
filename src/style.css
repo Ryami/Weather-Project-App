@@ -27,17 +27,28 @@ h1 {
   margin-inline-end: 0px;
 }
 
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  color: rgb(135, 135, 135);
+  font-size: 16px;
+  font-weight: 100;
+  line-height: 19px;
+}
+
 .App {
   max-width: 800px;
   margin: 60px auto;
 }
 
 .root {
-  -breakpoint-xs: 0;
-  --breakpoint-sm: 576px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 992px;
-  --breakpoint-xl: 1200px;
   font-family: "Patua One", cursive;
   font-size: 18px;
 }
@@ -115,7 +126,7 @@ h1 {
   line-height: 20px;
 }
 
-.WeatherInfo {
+.weatherInfo {
   margin-top: 20px;
 }
 
