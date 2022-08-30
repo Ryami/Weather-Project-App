@@ -24,7 +24,7 @@
             alt="Weather Time"
             class="pictures"
           />
-          <form class="searching-form">
+          <form id="type-primary">
             <div class="row">
               <div class="col-9">
                 <input
@@ -32,7 +32,8 @@
                   placeholder="Search for a City"
                   autocomplete="off"
                   autofocus="on"
-                  class="form-control city-input"
+                  class ="area"
+                  id="city-input"
                 />
               </div>
               <div class="col-3 p-0">
@@ -61,8 +62,8 @@
               <div class="col-6">
                 <div class="temperature-container">
                   <div>
-                    <span class="temperature">___</span>
-                    <span class="unit"> <a href="#" id="celsius-link" class="active">°C</a> |
+                    <span id="temperature">___</span>
+                    <span id="unit"> <a href="#" id="celsius-link" class="active">°C</a> |
                     <a href="#" id="fahrenheit-link">°F</a></span>
                   </div>
                 </div>
