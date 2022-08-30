@@ -1,3 +1,69 @@
-h1 {
-  color: red;
+*,
+:after,
+:before {
+  box-sizing: border-box;
+}
+
+div {
+  display: block;
+}
+
+body {
+  margin: 0;
+  font-family: "Anton", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  background-color: rgb(132, 234, 241);
+}
+
+html {
+  font-family: sans-serif;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.App {
+  max-width: 800px;
+  margin: 60px auto;
+}
+
+.root {
+  -breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  font-family: "Patua One", cursive;
+  font-size: 18px;
+}
+
+.container,
+.container-sm {
+  max-width: 540px;
+}
+
+.container,
+.container-fluid,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.Weather {
+  font-family: Cerebri-Sans, Helvetica, Arial, sans-serif;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 30px 50px rgb(65 50 100 / 8%);
+  padding: 40px;
+  color: #878787;
 }
