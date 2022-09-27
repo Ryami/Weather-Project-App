@@ -78,7 +78,7 @@ function getforecast(coordinates) {
 }
 
 function displayTemperature(response) {
-  let temperatureElement = document.querySelector("#temperaure");
+  let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
   let descriptionElement = document.querySelector("#description");
   let humidityElement = document.querySelector("#humidity");
@@ -98,10 +98,9 @@ function displayTemperature(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
-  getforecast(response.data.coord);
+  getForecast(response.data.coord);
 }
 
 function searchCity(city) {

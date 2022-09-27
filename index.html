@@ -36,40 +36,42 @@
                   id="city-input"
                 />
               </div>
-              <div class="col-3 p-0">
-                <input type="submit" class="search-btn w-100" value="Search" />
+              <div class="col-3">
+                <input type="submit" class="btn btn-primary w-100" value="Search" />
               </div>
             </div>
           </form>
           <div class="weatherInfo">
-            <div class="row">
-              <div class="col-6">
-                <h1 id="city">Location?</h1>
-                <ul>
-                  <li>
-                    <span id="date"> Today's date is...,</span></li>
-                    <li id="description">
+            <h1 id="city">Location?</h1>
+              <ul>
+                <li>Last updated:
+                    <span id="date"> Today's date is...,</span>
+                </li>
+                <li id="description">
                     with today's sky as...
-                  </li>
-                  <li>
-                    Humidity:
-                    <strong id="humidity">%</strong>
-                    , Wind:
-                    <strong id="wind">km/h</strong>
-                  </li>
-                </ul>
-              </div>
+                </li>
+              </ul>
+            <div class="second">
               <div class="col-6">
                 <div class="temperature-container">
+                 <img src="" alt="Clear" id="icon" class="float-left" />
                   <div class="float-left">
                     <strong id="temperature">___</strong>
                     <span id="unit">°F</span> 
                   </div>
                 </div>
               </div>
+               <div class="col-6">
+                <ul>
+                    <li>Humidity:
+                    <span id="humidity"></span>%</li>
+                    <li>Wind:
+                    <span id="wind"></span>km/h</li>
+                </ul>
+              </div>
             </div>
-          </div>
           <div class="weatherforecast row" id="forecast">
+          </div>
             <footer>
               This project was coded by Michelle and is
               <a
