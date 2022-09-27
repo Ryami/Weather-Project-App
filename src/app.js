@@ -33,7 +33,7 @@ function displayForecast() {
       `
       <div class="col-2">
         <div class="forecastPreview">
-          <div class="forecast-time">Tues</div>
+          <div class="forecast-time">${day}</div>
             <div class="forecast-temperature">
               <span class="forecast-temperature-max">38°</span>
               <span class="forecast-temperature-min">22°</span>
@@ -48,20 +48,32 @@ function displayForecast() {
   forecastElement.innerHTML = forecastHTML;
 }
 
+function getforecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "fa5cccda27fd9109e12bd86078c8d2e8";
+  let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${aipKey}`;
+}
+
 function displayTemperature(response) {
-  document.querySelector("#temperature").innerHTML =
-    Math.round(celsiusTemperature);
-  document.querySelector("#city").innerHTML = response.data.name;
-  document.querySelector("#description").innerHTML =
-    response.data.weather[0].description;
-  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
-  document.querySelector("#wind").innerHTML = Math.round(
-    response.data.wind.speed
-  );
-  document.querySelector("#date").innerHTML = formatDate(
-    response.data.dt * 1000
-  );
+  let temperatureElement = document.querySelector("#temperaure");
+  let cityElement = document.querySelector("#city");
+  let descriptionElement = document.querySelector("#description");
+  let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#wind");
+  let dateElement = document.querySelector("#date");
+  let iconElement = document.querySelector("#icon");
+
+  celsiusTemperature = response.data.main.temp;
+
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+  cityElement.innerHTML = response.data.name;
+  descriptionElement.innerHTML = response.data.weather[0].description;
+  humidityElement.innerHTML = response.data.main.humidity;
+  windElement.innerHTML = Math.round(response.data.wind.speed);
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
   iconElement.setAttribute("alt", response.data.weather[0].description);
+
+  getforecast(response.data.coord);
 }
 
 function searchCity(city) {
