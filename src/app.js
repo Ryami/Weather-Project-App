@@ -24,8 +24,8 @@ function formatDate(timestamp) {
 
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
-  let day = daet.getDay();
-  let days = ["Sun", "Mon", "Tues", "Wed", "Thu", "Fri", "Sat"];
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
   return days[day];
 }
@@ -42,27 +42,26 @@ function displayForecast(response) {
         forecastHTML +
         `
       <div class="col-2">
-        <div class="forecastPreview">
-          <div class="forecast-time">${formatDay(forecastDay.dt)}</div>
-          <img 
+        <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
+          <img
             src="http://openweathermap.org/img/wn/${
               forecastDay.weather[0].icon
             }@2x.png"
             alt=""
             width="42"
           />
-            <div class="forecast-temperature">
+          <div class="forecast-temperature">
               <span class="forecast-temperature-max">${Math.round(
                 forecastDay.temp.max
               )}°</span>
-              <span class="forecast-temperature-min">${ath.round(
+              <span class="forecast-temperature-min">${Math.round(
                 forecastDay.temp.min
               )}°</span>
             </div>
           </div>
         </div>
       </div>
-  `;
+   `;
     }
   });
 
@@ -70,10 +69,9 @@ function displayForecast(response) {
   forecastElement.innerHTML = forecastHTML;
 }
 
-function getforecast(coordinates) {
-  console.log(coordinates);
+function getForecast(coordinates) {
   let apiKey = "fa5cccda27fd9109e12bd86078c8d2e8";
-  let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${aipKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
 }
 
@@ -103,19 +101,19 @@ function displayTemperature(response) {
   getForecast(response.data.coord);
 }
 
-function searchCity(city) {
+function search(city) {
   let apiKey = "fa5cccda27fd9109e12bd86078c8d2e8";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayTemperature);
 }
 
-function displayCity(event) {
+function handleSubmit(event) {
   event.preventDefault();
   let cityInputElement = document.querySelector("#city-input");
   search(cityInputElement.value);
 }
 
 let form = document.querySelector("#type-primary");
-form.addEventListener("submit", displayCity);
+form.addEventListener("submit", handleSubmit);
 
-searchCity("Location");
+search("Location");
